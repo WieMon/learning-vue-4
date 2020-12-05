@@ -1,0 +1,57 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "Monika",
+      "lastname": "Poranek"
+    },
+    {
+      "id": 2,
+      "name": "Iza",
+      "lastname": "Markiza"
+    },
+    {
+      "id": 3,
+      "name": "Julia",
+      "lastname": "Kwiatek"
+    },
+    {
+      "id": 4,
+      "name": "Sylwia",
+      "lastname": "Biala"
+    },
+    {
+      "id": 5,
+      "name": "Koszalek",
+      "lastname": "Opalek"
+    },
+    {
+      "name": "Kubus",
+      "lastname": "Puchatek",
+      "id": 6
+    },
+    {
+      "name": "Dudek",
+      "lastname": "Poranek",
+      "id": 7
+    }
+  ],
+  "weapons": [
+    {
+      "id": 1,
+      "type": "sword"
+    },
+    {
+      "id": 2,
+      "type": "bow"
+    },
+    {
+      "id": 3,
+      "type": "knife"
+    },
+    {
+      "id": 4,
+      "type": "spear"
+    }
+  ]
+}
