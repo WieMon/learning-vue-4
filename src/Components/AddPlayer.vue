@@ -1,16 +1,16 @@
 <template>
   <div>
-  <h3>Game players</h3>
-  <div>
+    <h3>Game players</h3>
+    <div class='form-group'>
+      <label>Player's name</label>
+      <input class='form-control' type='text' v-model='player.name'>
+    </div>
+    <div class='form-group'>
+      <label>Player's lastname</label>
+      <input class='form-control' type='text' v-model='player.lastname'>
+    </div>
+    <button @click='add'>Add</button>
   </div>
-  <label>Player's name</label>
-  <input type='text' v-model='player.name'>
-  </div>
-   </div>
-  <label>Player's lastname</label>
-  <input type='text' v-model='player.lastname'>
-  </div>
-  <button @click='add'>Add</button>
 </template>
 
 <script>
@@ -25,12 +25,12 @@
 
     },
     methods: {
-      add() {
-        this.$http.post('players', this.player)
-        .then( response => {
-          console.log('response: ', response)
-        })
-      }
+      // add() {
+      //    this.$http.post('players', this.player)
+      //   .then( response => {
+      //     console.log('response: ', response)
+      //   })
+      // }
     }
   }
 </script>
