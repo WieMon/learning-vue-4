@@ -7,8 +7,8 @@
       :key='index'
       >
     </div>
-    <div>Name: {{player.name}}</div>
-    <div>Lastname: {{player.lastname}}</div>
+    <div>Name: mmmmm</div>
+    <div>Lastname: gggggg</div>
   </div>
 </template>
 
@@ -20,16 +20,16 @@
       }
     },
     methods: {
-    //   fetchData(){
-    //     this.$http.get('players')
-    //     .then( response => {
-    //       this.players = response.body;
-    //       console.log('response: ',response.body)
-    //     })
-    //   }
-    // },
-    // created(){
-    //   this.fetchData();
+      fetchData() {
+        this.$http.get('http://localhost:3004/players')
+        .then( response => {
+          this.players = response.body;
+          console.log('response: ', response.body)
+        })
+      }
+    },
+    created(){
+      this.fetchData();
     }
   }
 </script>

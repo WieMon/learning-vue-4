@@ -25,12 +25,12 @@
 
     },
     methods: {
-      // add() {
-      //    this.$http.post('players', this.player)
-      //   .then( response => {
-      //     console.log('response: ', response)
-      //   })
-      // }
+     add() {
+         this.$http.post('players', this.player)
+        .then( response => {
+          console.log('response: ', response)
+        })
+      }
     }
   }
 </script>
