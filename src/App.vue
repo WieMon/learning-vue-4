@@ -12,7 +12,7 @@
 
 <script>
   import compPlayer from './Components/Player.vue';
-  import compAddPlayer from './Components/AddPlayer.vue';
+  //import compAddPlayer from './Components/AddPlayer.vue';
 
   export default {
     data() {
@@ -22,7 +22,7 @@
     },
     components: {
       compPlayer,
-      compAddPlayer
+      //compAddPlayer
     }
   }
 </script>

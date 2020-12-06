@@ -6,9 +6,10 @@
       v-for='(player,index) in players'
       :key='index'
       >
+      <div>Name: {{player.name}}</div>
+    <div>Lastname: {{player.lastname}}</div>
     </div>
-    <div>Name: mmmmm</div>
-    <div>Lastname: gggggg</div>
+
   </div>
 </template>
 
@@ -16,21 +17,53 @@
   export default {
     data() {
       return {
-        players: '',
+        players: []
       }
     },
     methods: {
-      fetchData() {
-        this.$http.get('http://localhost:3004/players')
-        .then( response => {
-          this.players = response.body;
-          console.log('response: ', response.body)
-        })
-      }
+
+      // fetchData() {
+      //   this.$http.get('http://localhost:3004/players')
+      //   .then( response => {
+      //     this.players = response.body;
+      //     console.log('response: ', response.body)
+      //   })
+      // }
     },
+    // created(){
+    //    this.$http.get('players.json')
+    //       .then( response => response.json())
+    //       .then( data => {
+    //         let list = [];
+
+    //         for( let key in data ){
+    //             list.push({
+    //                 ...data[key],
+    //                 id: key
+    //             })
+    //         }
+    //         this.players = list
+    //       })
+    //   //this.fetchData();
+    // }
     created(){
-      this.fetchData();
-    }
+
+          this.$http.get('players.json')
+          .then( response => response.json())
+          .then( data => {
+            let list = [];
+
+            for( let key in data ){
+                list.push({
+                    ...data[key],
+                    id: key
+                })
+            }
+            this.players = list
+          })
+
+
+        }
   }
 </script>
 

@@ -1,67 +1,20 @@
 {
-  "players": [
-    {
-      "id": 1,
-      "name": "Monika",
-      "lastname": "Poranek"
+  "players" : {
+    "aaa" : {
+      "name" : "Koszalek",
+      "lastname" : "Opalek"
     },
-    {
-      "id": 2,
-      "name": "Iza",
-      "lastname": "Markiza"
+    "bbb" : {
+      "name" : "Kubus",
+      "lastname" : "Puchatek"
     },
-    {
-      "id": 3,
-      "name": "Julia",
-      "lastname": "Kwiatek"
+    "ccc" : {
+      "name" : "Panna",
+      "lastname" : "Migotka"
     },
-    {
-      "id": 4,
-      "name": "Sylwia",
-      "lastname": "Biala"
-    },
-    {
-      "id": 5,
-      "name": "Koszalek",
-      "lastname": "Opalek"
-    },
-    {
-      "name": "Kubus",
-      "lastname": "Puchatek",
-      "id": 6
-    },
-    {
-      "name": "Dudek",
-      "lastname": "Poranek",
-      "id": 7
-    },
-    {
-      "name": "ggff",
-      "lastname": "ffff",
-      "id": 8
-    },
-    {
-      "name": "hhhhhg",
-      "lastname": "dfgffh",
-      "id": 9
+    "ddd" : {
+      "name" : "Bolek",
+      "lastname" : "Lolek"
     }
-  ],
-  "weapons": [
-    {
-      "id": 1,
-      "type": "sword"
-    },
-    {
-      "id": 2,
-      "type": "bow"
-    },
-    {
-      "id": 3,
-      "type": "knife"
-    },
-    {
-      "id": 4,
-      "type": "spear"
-    }
-  ]
+  }
 }
