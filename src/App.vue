@@ -1,5 +1,6 @@
 <template>
   <div class='container'>
+    <comp-header/>
     <div>
       <button @click="active = 'compPlayer'">Players</button>
       <button @click="active = 'compAddPlayer'">Add players</button>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import compHeader from './Components/Header.vue';
   import compPlayer from './Components/Player.vue';
   //import compAddPlayer from './Components/AddPlayer.vue';
 
@@ -21,6 +23,7 @@
       }
     },
     components: {
+      compHeader,
       compPlayer,
       //compAddPlayer
     }
