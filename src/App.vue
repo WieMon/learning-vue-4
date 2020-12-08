@@ -27,6 +27,9 @@ import compHeader from './Components/Header.vue';
       compHeader,
       //compPlayer,
       //compAddPlayer
+    },
+    created(){
+      this.$store.dispatch('refreshToken')
     }
   }
 </script>

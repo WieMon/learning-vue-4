@@ -16,8 +16,8 @@
           <router-link to="/signup">Sign up</router-link>
         </li>
 
-        <li>
-          <router-link to="/dashboard">Dashboard</router-link>
+        <li v-if='isAuth'>
+          <router-link to="/player">Player</router-link>
         </li>
       </ul>
     </nav>

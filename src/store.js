@@ -46,7 +46,6 @@ export default new Vuex.Store ({
         commit('auth',authData);
         localStorage.setItem('token',authData.idToken);
         localStorage.setItem('refresh',authData.refreshToken);
-        //console.log(authData)
       })
       .catch( error => console.log(error))
     },
@@ -63,6 +62,24 @@ export default new Vuex.Store ({
       })
       .catch( error => console.log(error))
 
+    },
+    refreshToken({commit}){
+      const refreshToken = localStorage.getItem("refresh");
+      if(refreshToken){
+        Vue.http.post(`https://securetoken.googleapis.com/v1/token?key=${FbApiKey}`,{
+          grant_type: 'refresh_token',
+          refresh_token: refreshToken
+        })
+        .then( response => response.json())
+        .then( authData => {
+          commit('auth',{
+            idToken: authData.id_token,
+            refreshToken: authData.refresh_token
+          });
+          localStorage.setItem('token',authData.id_token);
+          localStorage.setItem('refresh',authData.refresh_token);
+        })
+      }
     },
   }
 })
