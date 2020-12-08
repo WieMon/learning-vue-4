@@ -2,10 +2,10 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
 import router from './routes.js';
-
+import store from './store.js';
 Vue.use(VueResource);
 
-Vue.http.options.root = 'https://auth-user2-df48c-default-rtdb.firebaseio.com'
+Vue.http.options.root = 'https://auth-user-af437-default-rtdb.firebaseio.com'
 
 //Vue.http.options.root = 'https://playersbelgium-af474-default-rtdb.europe-west1.firebasedatabase.app/'
 
@@ -15,6 +15,7 @@ Vue.http.options.root = 'https://auth-user2-df48c-default-rtdb.firebaseio.com'
 
 new Vue({
   router,
+  store,
   el: '#app',
   render: h => h(App)
 })
