@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hello: </h1>
+    <h1>Hello: {{userEmail}}</h1>
     <h3>List of players</h3>
     <div>
       <div>Name: </div>
@@ -12,17 +12,17 @@
 
 <script>
  export default {
-  // computed:{
-  //   userEmail(){
-  //     if(this.$store.state.user){
-  //       return this.$store.state.user.email
-  //     }
-  //   }
-  // },
-  // created(){
-  //   let tokenId = this.$store.state.token;
-  //   this.$store.dispatch('getUserInfo',tokenId)
-  // }
+  computed:{
+    userEmail(){
+      if(this.$store.state.user){
+        return this.$store.state.user.email
+      }
+    }
+  },
+  created(){
+    let tokenId = this.$store.state.token;
+    this.$store.dispatch('getUserInfo',tokenId)
+  }
 }
 </script>
 
