@@ -14,14 +14,25 @@ export default new Vuex.Store ({
     refresh: '',
   },
   getters: {
-
+    isAuth(state) {
+      if(state.token) {return true}
+      return false
+    }
   },
   mutations: {
     auth(state,authData) {
       state.email = authData.email;
       state.token = authData.idToken;
       state.refresh = authData.refreshToken;
-    }
+    },
+    logout(state) {
+      state.email = null;
+      state.token = null;
+      state.refresh = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('refresh');
+      router.push('/')
+    },
   },
   actions: {
     signup({ commit }, payload) {
@@ -38,6 +49,20 @@ export default new Vuex.Store ({
         //console.log(authData)
       })
       .catch( error => console.log(error))
+    },
+    signin({ commit }, payload) {
+      Vue.http.post(`${FbAuth}/accounts:signInWithPassword?key=${FbApiKey}`,{
+        ...payload,
+        returnSecureToken: true
+      })
+      .then( response => response.json())
+      .then( authData => {
+        commit('auth',authData);
+        localStorage.setItem('token',authData.idToken);
+        localStorage.setItem('refresh',authData.refreshToken);
+      })
+      .catch( error => console.log(error))
+
     },
   }
 })

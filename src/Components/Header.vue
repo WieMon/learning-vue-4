@@ -6,11 +6,11 @@
         <li>
           <router-link to="/">Home</router-link>
         </li>
-        <li>
+        <li v-if='!isAuth'>
           <router-link to="/signin">Sign in</router-link>
         </li>
-         <li >
-          <router-link >Sign out</router-link>
+         <li v-if='isAuth' >
+          <span @click='signout'>Sign out</span>
         </li>
         <li>
           <router-link to="/signup">Sign up</router-link>
@@ -26,7 +26,16 @@
 
 <script>
 export default {
-
+  computed: {
+    isAuth() {
+      return this.$store.getters.isAuth
+    }
+  },
+  methods: {
+    signout() {
+      this.$store.commit('logout')
+    }
+  }
 }
 </script>
 
@@ -45,14 +54,12 @@ h3 {
   font-size: 26px;
 }
 
-
-li {
+header nav li {
   list-style: none;
   text-transform: uppercase;
   display: inline;
   margin: 0 20px;
   cursor: pointer;
-
 }
 
 a {
