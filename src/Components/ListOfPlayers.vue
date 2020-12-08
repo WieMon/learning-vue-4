@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h3>List of players</h3>
+  <div class='wrapper'>
+    <h3>List of Players</h3>
     <div
       class='player'
       v-for='(player,index) in players'
@@ -9,7 +9,6 @@
       <div>Name: {{player.name}}</div>
     <div>Lastname: {{player.lastname}}</div>
     </div>
-
   </div>
 </template>
 
@@ -68,10 +67,14 @@
 </script>
 
 <style>
-  .player {
-    width: 300px;
-    padding: 15px;
-    border: 1px solid black;
-    background-color: orange;
-  }
+h3 {
+  color: black;
+}
+
+.player {
+  width: 300px;
+  padding: 15px;
+  border: 1px solid black;
+  background-color: orange;
+}
 </style>

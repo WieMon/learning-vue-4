@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Game players</h3>
+    <h3>Add player</h3>
     <div class='form-group'>
       <label>Player's name</label>
       <input class='form-control' type='text' v-model='player.name'>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  export default {
+export default {
     data() {
       return {
         player: {
@@ -36,4 +36,8 @@
 </script>
 
 <style>
+h3 {
+  color: black;
+
+}
 </style>
