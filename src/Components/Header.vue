@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/">About</router-link>
+          <router-link to="/">Home</router-link>
         </li>
         <li>
           <router-link to="/signin">Sign in</router-link>
@@ -52,5 +52,11 @@ li {
   display: inline;
   margin: 0 20px;
   cursor: pointer;
+
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 </style>

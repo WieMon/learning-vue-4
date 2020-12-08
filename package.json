@@ -13,7 +13,9 @@
   "dependencies": {
     "firebase": "^8.1.2",
     "vue": "^2.5.11",
-    "vue-resource": "^1.5.1"
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.4.9",
+    "vuex": "^3.6.0"
   },
   "browserslist": [
     "> 1%",
