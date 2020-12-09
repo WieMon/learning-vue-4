@@ -9,7 +9,10 @@
       <label>Player's lastname</label>
       <input class='form-control' type='text' v-model='player.lastname'>
     </div>
-    <button @click='add'>Add</button>
+    <button @click='addPost'>Add</button>
+  <div v-if='addpost'>
+    You added the player!
+  </div>
   </div>
 </template>
 
@@ -22,14 +25,16 @@ export default {
           lastname: ''
         }
       }
-
     },
+    computed: {
+      addpost() {
+        let status = this.$store.getters['addPostStatus'];
+        return status
+      }
+  } ,
     methods: {
-     add() {
-         this.$http.post('players', this.player)
-        .then( response => {
-          console.log('response: ', response)
-        })
+      addPost() {
+        this.$store.dispatch('addPost', this.player)
       }
     }
   }

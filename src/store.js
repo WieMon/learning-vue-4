@@ -12,12 +12,16 @@ export default new Vuex.Store ({
     email: '',
     token: '',
     refresh: '',
-    user: null
+    user: null,
+    addpost: false
   },
   getters: {
     isAuth(state) {
       if(state.token) {return true}
       return false
+    },
+    addPostStatus(state) {
+      return state.addpost
     }
   },
   mutations: {
@@ -36,8 +40,12 @@ export default new Vuex.Store ({
     },
     addUserInfo(state, userInfo){
       state.user = userInfo
-    }  
+    },
+    addPost(state) {
+      state.addpost = true
+    }
   },
+
   actions: {
     signup({ commit }, payload) {
 
@@ -93,6 +101,21 @@ export default new Vuex.Store ({
       .then( res => {
         commit("addUserInfo",res.users[0])
       })
+    },
+    addPost({ commit, state},payload) {
+      Vue.http.post(`posts.json?auth=${state.token}`,payload)
+      .then(response => response.json())
+      .then(response=> {
+        console.log(response)
+        commit('addPost')
+      })
+    },
+    getPost({ commit },payload ){
+      Vue.http.get(`posts.json?orderBy="$key"&equalTo="${payload}"`)
+      .then(response => response.json())
+      .then (response => {
+      console.log(response)
+     })
     }
   }
 })

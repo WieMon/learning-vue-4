@@ -19,50 +19,25 @@
         players: []
       }
     },
-    methods: {
-
-      // fetchData() {
-      //   this.$http.get('http://localhost:3004/players')
-      //   .then( response => {
-      //     this.players = response.body;
-      //     console.log('response: ', response.body)
-      //   })
-      // }
-    },
     // created(){
-    //    this.$http.get('players.json')
-    //       .then( response => response.json())
-    //       .then( data => {
-    //         let list = [];
-
-    //         for( let key in data ){
-    //             list.push({
-    //                 ...data[key],
-    //                 id: key
-    //             })
-    //         }
-    //         this.players = list
-    //       })
-    //   //this.fetchData();
+    //   this.$http.get('players.json')
+    //   .then( response => response.json())
+    //   .then( data => {
+    //     let list = [];
+    //        for( let key in data ){
+    //         list.push({
+    //           ...data[key],
+    //           id: key
+    //         })
+    //       }
+    //     this.players = list
+    //   })
     // }
-    created(){
-
-          this.$http.get('players.json')
-          .then( response => response.json())
-          .then( data => {
-            let list = [];
-
-            for( let key in data ){
-                list.push({
-                    ...data[key],
-                    id: key
-                })
-            }
-            this.players = list
-          })
-
-
-        }
+    created() {
+    //let list = [];
+    // let id = this.$route.params.id;
+    this.$store.dispatch('getPost', this.players)
+    }
   }
 </script>
 
