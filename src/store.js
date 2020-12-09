@@ -13,7 +13,8 @@ export default new Vuex.Store ({
     token: '',
     refresh: '',
     user: null,
-    addpost: false
+    addpost: false,
+    homePosts: null
   },
   getters: {
     isAuth(state) {
@@ -22,6 +23,9 @@ export default new Vuex.Store ({
     },
     addPostStatus(state) {
       return state.addpost
+    },
+    getAllPosts(state) {
+      return state.homePosts;
     }
   },
   mutations: {
@@ -43,6 +47,9 @@ export default new Vuex.Store ({
     },
     addPost(state) {
       state.addpost = true
+    },
+    getAllPosts(state,posts) {
+      state.homePosts = posts;
     }
   },
 
@@ -106,15 +113,24 @@ export default new Vuex.Store ({
       Vue.http.post(`posts.json?auth=${state.token}`,payload)
       .then(response => response.json())
       .then(response=> {
-        console.log(response)
+        //console.log(response)
         commit('addPost')
       })
     },
-    getPost({ commit },payload ){
-      Vue.http.get(`posts.json?orderBy="$key"&equalTo="${payload}"`)
+    getAllPosts({ commit },payload ){
+      Vue.http.get(`posts.json?print=pretty`)
       .then(response => response.json())
       .then (response => {
-      console.log(response)
+      //console.log(response)
+      const posts = [];
+      for(let key in response) {
+        posts.push({
+          ...response[key],
+          id: key
+        })
+      }
+      //console.log(posts)
+      commit('getAllPosts',posts.reverse())
      })
     }
   }

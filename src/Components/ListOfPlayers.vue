@@ -3,40 +3,24 @@
     <h3>List of Players</h3>
     <div
       class='player'
-      v-for='(player,index) in players'
+      v-for='(post,index) in posts'
       :key='index'
       >
-      <div>Name: {{player.name}}</div>
-    <div>Lastname: {{player.lastname}}</div>
+      <div>Name: {{post.name}}</div>
+    <div>Lastname: {{post.lastname}}</div>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        players: []
+    computed: {
+      posts() {
+        return this.$store.getters['getAllPosts']
       }
     },
-    // created(){
-    //   this.$http.get('players.json')
-    //   .then( response => response.json())
-    //   .then( data => {
-    //     let list = [];
-    //        for( let key in data ){
-    //         list.push({
-    //           ...data[key],
-    //           id: key
-    //         })
-    //       }
-    //     this.players = list
-    //   })
-    // }
     created() {
-    //let list = [];
-    // let id = this.$route.params.id;
-    this.$store.dispatch('getPost', this.players)
+    this.$store.dispatch('getAllPosts')
     }
   }
 </script>
